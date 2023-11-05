@@ -22,7 +22,7 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 ### Phonemes Training
 
 <p align="center">
-  <img src="imagestongue.jpg" alt="Mouth Movement">
+  <img src="images/tongue.jpg" alt="Mouth Movement">
 </p>
 
 - Teaching Lip Movement, Tongue Movement and Teeth Alignment.
@@ -91,6 +91,6 @@ Copyright Receipt No. : 97101
 
 ## 🚀 Contact
 
-For inquiries or support, please contact blackorder.hearme@gmail.com
+For inquiries or support, please contact (blackorder.hearme@gmail.com).
 
 Join our mission on LinkedIn: [HearMeAI on LinkedIn](https://www.linkedin.com/company/hearmeai/).
