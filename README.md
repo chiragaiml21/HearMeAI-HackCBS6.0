@@ -1,5 +1,3 @@
-![00-hand-gesture-recognition](https://github.com/chiragaiml21/HearMeAI-HackCBS6.0/assets/92880442/d2b8fe1a-f101-4bfb-b079-9d25f7939841)# HearMeAI-HackCBS6.0
-
 <p align="center">
   <img src="hearmeai-logo.png" alt="HearMeAI Logo" width="200">
 </p>
@@ -42,7 +40,7 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 
 <p align="center">
   <h2>Accuracy > 90%</h2>
-  <img src="accuracy.jpg" alt="Accuracy" width="200">
+  <img src="accuracy.png" alt="Accuracy">
 </p>
 
 ### Hand Sign Detection
@@ -58,7 +56,7 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 ### Phoneme Extraction
 
 <p align="center">
-  <img src="phoneme_segmennt" alt="Phoneme Segment">
+  <img src="phoneme_segment.jpg" alt="Phoneme Segment">
 </p>
 
 - Our Python-based tool ensures 100% accuracy in identifying phonemes 🔤.
@@ -68,10 +66,10 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 ### User-Friendly Interface
 
 <p align="center">
-  <img src="1.jpg" alt="" width="200">
-  <img src="2.jpg" alt="" width="200">
-  <img src="3.jpg" alt="" width="200">
-  <img src="4.jpg" alt=" width="200">
+  <img src="1.png" alt="" width="200">
+  <img src="2.png" alt="" width="200">
+  <img src="4.png" alt="" width="200">
+  <img src="3.png" alt=" width="200">
 </p>
 
 - A seamless and intuitive interface for users of all abilities 🌐.
