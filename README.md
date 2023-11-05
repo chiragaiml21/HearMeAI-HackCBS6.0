@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="hearmeai-logo.png" alt="HearMeAI Logo" width="200">
+  <img src="images/hearmeai-logo.png" alt="HearMeAI Logo" width="200">
 </p>
 
 # HearMeAI
@@ -12,7 +12,7 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 ### MetaHuman Integration
 
 <p align="center">
-  <img src="MetaTutor.png" alt="MetaTutor" width="200">
+  <img src="images/MetaTutor.png" alt="MetaTutor" width="200">
 </p>
 
 - Meet Samarth, your lifelike virtual tutor 🧑‍🏫.
@@ -22,7 +22,7 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 ### Phonemes Training
 
 <p align="center">
-  <img src="tongue.jpg" alt="Mouth Movement">
+  <img src="imagestongue.jpg" alt="Mouth Movement">
 </p>
 
 - Teaching Lip Movement, Tongue Movement and Teeth Alignment.
@@ -31,7 +31,7 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 ### Lip Reading Model
 
 <p align="center">
-  <img src="LipRead.jpg" alt="LipRead" width="200">
+  <img src="images/LipRead.jpg" alt="LipRead" width="200">
 </p>
 
 - Enhance communication accuracy through advanced lip-reading 👄.
@@ -40,13 +40,13 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 
 <p align="center">
   <h2>Accuracy > 90%</h2>
-  <img src="accuracy.png" alt="Accuracy">
+  <img src="images/accuracy.png" alt="Accuracy">
 </p>
 
 ### Hand Sign Detection
 
 <p align="center">
-  <img src="HandSign.gif" alt="Hand Sign Detection" width="200">
+  <img src="images/HandSign.gif" alt="Hand Sign Detection" width="200">
 </p>
 
 - Translate sign language into spoken conversation ✋.
@@ -56,7 +56,7 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 ### Phoneme Extraction
 
 <p align="center">
-  <img src="phoneme_segment.jpg" alt="Phoneme Segment">
+  <img src="images/phoneme_segment.jpg" alt="Phoneme Segment">
 </p>
 
 - Our Python-based tool ensures 100% accuracy in identifying phonemes 🔤.
@@ -66,10 +66,10 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 ### User-Friendly Interface
 
 <p align="center">
-  <img src="1.png" alt="" width="200">
-  <img src="2.png" alt="" width="200">
-  <img src="4.png" alt="" width="200">
-  <img src="3.png" alt=" width="200">
+  <img src="images/1.png" alt="" width="200">
+  <img src="images/2.png" alt="" width="200">
+  <img src="images/4.png" alt="" width="200">
+  <img src="images/3.png" alt=">
 </p>
 
 - A seamless and intuitive interface for users of all abilities 🌐.
