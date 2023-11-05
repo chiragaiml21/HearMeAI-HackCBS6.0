@@ -1,0 +1,95 @@
+{% extends "dashboard/base.html" %} {% load static %} {% block body %}
+
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body mt-n3 mb-n4">
+      <h5 class="card-title fw-semibold d-inline-block">My Profile 👤</h5>
+      <a class="btn btn-outline-info float-end" href="{% url 'update-profile' %}">Update Profile</a>
+    </div>
+  </div>
+
+  {% for message in messages %}
+
+  <div class="alert alert-warning alert-dismissible fade show mb-n3" role="alert">
+    <strong>{{ message.tag }}</strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  {% endfor %}
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="{{ student.avatar.image.url }}" alt="avatar" class="img-fluid" style="width: 150px" />
+            <h5 class="my-3">
+              {{ student.first_name }} {{ student.last_name }}
+            </h5>
+            <p class="text-muted mb-1">
+              <b>Class {{ student.level }}</b> Aspirent
+            </p>
+            <p class="text-muted mb-4">{{ student.address }}</p>
+            <div class="d-flex justify-content-center mb-2">
+              <a type="button" href="{% url 'update-profile' %}" class="btn btn-outline-primary ms-1">
+                Update
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Username</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ student.username }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ student.email }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ student.phone_number }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Gender</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ student.gender }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ student.address }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "dashboard/base.html" %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+    {{ word }}
+
+    {% for phoneme in phonemes %}
+
+    <p>
+        <audio controls autoplay preload="auto">
+            <source src="{{ phoneme.audio.url }}">
+        </audio>
+        
+    </p>
+
+    {% endfor %}
+
+</div>
+
+{% block myjs %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var audio = document.getElementById("myAudio");
+        audio.play();
+    });
+</script>
+
+{% endblock %}
+
+{% endblock %}

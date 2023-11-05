@@ -1,0 +1,319 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+
+<style>
+    * {
+        scroll-behavior: smooth;
+    }
+
+    .avatar-frame {
+        width: 105vh;
+        height: 65vh;
+        /* border-radius: 50%; */
+        border: 1px solid #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        /* margin: 0 auto; */
+        /* position: relative; */
+    }
+
+    #ifr {
+        width: 105vh;
+        height: 65vh;
+    }
+
+
+    .phone-frame {
+        width: 105vh;
+        height: 22vh;
+        margin-top: 10px;
+        background-color: #fff;
+        /* border-radius: 50%; */
+        border: 1px solid #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        /* margin: 0 auto; */
+        /* position: relative; */
+    }
+
+
+
+
+    /* ---------------Right menu bar--------------------  */
+
+
+
+    #right-cont {
+        color: black;
+        /* float: right; */
+        height: 32vh;
+        width: 55vh;
+        background-color: white;
+        position: absolute;
+        border-radius: 10px;
+        right: 0px;
+        top: 0px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+
+    /* -------------searchbar------------------ */
+
+
+    .searchBox {
+        margin-top: 20px;
+        /* background-color: black; */
+        /* border-radius: 10px; */
+        height: 40px;
+    }
+
+    .searchBox>.searchInput {
+        height: 100%;
+        width: 90%;
+        margin-left: 20px;
+        /* border: none; */
+        border: 1px solid black;
+        outline: none;
+        border-radius: 50px;
+        padding-left: 20px;
+        font-size: 15px;
+        color: black;
+    }
+
+    .searchBox>.searchButton {
+        position: absolute;
+        right: 16px;
+        height: 40px;
+        width: 40px;
+        border: none;
+        background-color: #ef473a;
+        color: white;
+        border-radius: 50%;
+        font-size: 20px;
+    }
+
+    /* ---------------character__selection------------ */
+
+    #word__list {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        overflow: hidden;
+        padding-bottom: 2.5%;
+    }
+
+    #word__list>.word__list__item {
+        margin-top: 5px;
+        height: 55px;
+        width: 55px;
+        border: 1.5px solid #000;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #word__list>.word__list__item:hover {
+        background-color: #ef473a;
+        color: white;
+        transform: scale(1.1);
+        border: none;
+        box-shadow: 1px 1px 3px rgba(74, 74, 74, 0.308);
+    }
+
+    .my__btn {
+        margin-top: -1%;
+        /* background: green; */
+    }
+
+    .show_more {
+        margin-left: 33%;
+        /* margin-top: 15px; */
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        /* margin: 20px 10px; */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .show_more:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+
+    }
+
+    .word__selection {
+        overflow-y: scroll;
+
+        color: black;
+        /* float: right; */
+        height: 51vh;
+        width: 55vh;
+        background-color: white;
+        /* position: absolute; */
+        border-radius: 10px;
+        right: 10px;
+        margin-top: 27px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    #cont__list {
+        overflow-x: hidden;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #cont__list>li {
+        list-style: none;
+        margin-top: 10px;
+        height: 55px;
+        width: 55px;
+        display: flex;
+
+        /* border: 1.5px solid #000; */
+        /* border-radius: 50%; */
+        margin-left: 10px;
+        margin-right: 10px;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+
+
+        <!--  Header Start -->
+
+        <div class="container" id="my-cont">
+
+            <div class="avatar">
+                <div class="avatar-frame">
+                    <!-- <iframe src="#" id="ifr"></iframe> -->
+                    <div class="sketchfab-embed-wrapper"> <iframe id="ifr" title="Iron Man" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/69dde1ad49e94852984e3d83928efd65/embed?autostart=1&camera=0&ui_theme=dark&dnt=1"> </iframe> </div>
+
+                </div>
+                <div class="phonem">
+                    <div class="phone-frame">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="right-cont">
+            <div class="right__menu">
+
+                <div class="searchBox">
+
+                    <input class="searchInput" type="text" name="" placeholder="Search word...">
+                    <button class="searchButton" href="#">
+                        <i class="ti ti-search"></i>
+                    </button>
+                </div>
+                <hr>
+                <div class="character__selection">
+                    <ul id="word__list">
+                        <li class="word__list__item" id="active">A</li>
+                        <li class="word__list__item">B</li>
+                        <li class="word__list__item">C</li>
+                        <li class="word__list__item">D</li>
+                        <li class="word__list__item">E</li>
+                        <!-- <li class="word__list__item" >F</li>
+          <li class="word__list__item" >G</li>
+          <li class="word__list__item" >H</li>
+          <li class="word__list__item" >I</li>
+          <li class="word__list__item" >J</li> -->
+                    </ul>
+                    <div class="my__btn">
+                        <button class="show_more">
+                            <span class="text">Show More</span>
+                            <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="word__selection">
+                <div class="container" id="cont_flx">
+                    <ul id="cont__list">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                        <li>21</li>
+                        <li>22</li>
+                        <li>23</li>
+                        <li>24</li>
+                        <li>25</li>
+                        <li>26</li>
+                        <li>27</li>
+                        <li>28</li>
+                        <li>29</li>
+                        <li>30</li>
+                        <li>31</li>
+                        <li>32</li>
+                        <li>33</li>
+                        <li>34</li>
+                        <li>35</li>
+                        <li>36</li>
+                        <li>37</li>
+                        <li>38</li>
+                        <li>39</li>
+                        <li>40</li>
+                        <li>41</li>
+                        <li>42</li>
+                        <li>43</li>
+                        <li>44</li>
+                        <li>45</li>
+                        <li>46</li>
+                        <li>47</li>
+                        <li>48</li>
+                        <li>49</li>
+                        <li>50</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

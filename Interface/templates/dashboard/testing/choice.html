@@ -1,0 +1,85 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body  mt-n3 mb-n4">
+            <h5 class="card-title fw-semibold d-inline-block">Practice Makes One Perfect,<strong> {{ student.first_name }}
+                    🎯</strong>
+            </h5>
+            <h5 class="card-title fw-semibold  float-end">We Believe You Can 🏆</h5>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <!-- ==================================== HAND SIGN TRAINING ========================================== -->
+        <div class="col-sm-6 col-xl-3">
+            <div class="card overflow-hidden rounded-2">
+                <div class="position-relative">
+                    <a href="{% url 'hand-sign-training' %}"><img
+                            src="https://img.freepik.com/premium-vector/disability-women-cartoons-with-wheelchair-prosthesis-cane-cast-inclusion-diversity-health-care-theme_25030-51982.jpg?size=626&ext=jpg&ga=GA1.1.1601828974.1694536294&semt=ais"
+                            class="card-img-top rounded-2" alt="..." /></a>
+                    <a href="#"
+                        class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
+                            class="ti ti-music fs-4"></i></a>
+                </div>
+                <div class="card-body pt-3 p-2">
+                    <h6 class="fw-semibold fs-4">Hand Signs Training 👋</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== Lip Reading ========================================== -->
+        <div class="col-sm-6 col-xl-3">
+            <div class="card overflow-hidden rounded-2">
+                <div class="position-relative">
+                    <a href="{% url 'sounds_training' %}"><img
+                            src="https://cdn5.vectorstock.com/i/1000x1000/55/39/cartoon-lip-sync-animation-card-poster-vector-20695539.jpg"
+                            class="card-img-top rounded-2" alt="..." /></a>
+                    <a href="#"
+                        class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
+                            class="ti ti-music fs-4"></i></a>
+                </div>
+                <div class="card-body pt-3 p-3">
+                    <h6 class="fw-semibold fs-4">Lip Reading Practice</h6>
+                    <!-- <div class="d-flex align-items-center justify-content-between">
+
+                        <ul class="list-unstyled d-flex align-items-center mb-0">
+                            <li>
+                                <a class="me-1"><i class="ti ti-star-half text-warning"></i></a>
+                            </li>
+                            <li>
+                                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+                            </li>
+                            <li>
+                                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+                            </li>
+                            <li>
+                                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+                            </li>
+                            <li>
+                                <a class=""><i class="ti ti-star text-warning"></i></a>
+                            </li>
+                        </ul>
+                    </div> -->
+                    <!-- <div class="row-cols-lg-3">
+                        <span class="mb-1">Duration: {{ batch.duration }}</span>
+                    </div>
+                    <div class="row-cols-lg-3">
+                        <span class="mb-1">{{ batch.description }}</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

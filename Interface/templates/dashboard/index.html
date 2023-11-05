@@ -1,0 +1,554 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+<style>
+    @property --progress-value {
+        syntax: "<integer>";
+        inherits: false;
+        initial-value: 0;
+    }
+
+    @-webkit-keyframes html-progress {
+        to {
+            --progress-value: 32;
+        }
+    }
+
+    @keyframes html-progress {
+        to {
+            --progress-value: 32;
+        }
+    }
+
+    @-webkit-keyframes css-progress {
+        to {
+            --progress-value: 50;
+        }
+    }
+
+    @keyframes css-progress {
+        to {
+            --progress-value: 50;
+        }
+    }
+
+    @-webkit-keyframes js-progress {
+        to {
+            --progress-value: 43;
+        }
+    }
+
+    @keyframes js-progress {
+        to {
+            --progress-value: 43;
+        }
+    }
+
+    .progress-bar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /* to center the percentage value */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .progress-bar::before {
+        counter-reset: percentage var(--progress-value);
+        content: counter(percentage) "%";
+    }
+
+    .html {
+        background: radial-gradient(closest-side, white 79%, transparent 80% 100%), conic-gradient(#5d87ff calc(var(--progress-value) * 1%), #ecf2ff 0);
+        -webkit-animation: html-progress 2s 1 forwards;
+        animation: html-progress 2s 1 forwards;
+    }
+
+    .html::before {
+        -webkit-animation: html-progress 2s 1 forwards;
+        animation: html-progress 2s 1 forwards;
+    }
+
+    .css {
+        background: radial-gradient(closest-side, white 79%, transparent 80% 100%, white 0), conic-gradient(#5d87ff calc(var(--progress-value) * 1%), #ecf2ff 0);
+        -webkit-animation: css-progress 2s 1 forwards;
+        animation: css-progress 2s 1 forwards;
+    }
+
+    .css::before {
+        -webkit-animation: css-progress 2s 1 forwards;
+        animation: css-progress 2s 1 forwards;
+    }
+
+    .js {
+        background: radial-gradient(closest-side, white 79%, transparent 80% 100%, white 0), conic-gradient(#8cb5ff calc(var(--progress-value) * 1%), #ecf2ff);
+        -webkit-animation: js-progress 2s 1 forwards;
+        animation: js-progress 2s 1 forwards;
+    }
+
+    .js::before {
+        -webkit-animation: js-progress 2s 1 forwards;
+        animation: js-progress 2s 1 forwards;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    progress {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+
+    .badge-img {
+        opacity: 0.5;
+        margin-left: 1%;
+    }
+
+    .badge-img:hover {}
+
+    .container-2 {
+        position: relative;
+        text-align: center;
+        color: rgb(11, 11, 11);
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+    <!--  =========================================== CARDS =================================================== -->
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card overflow-hidden">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-9 fw-semibold">Today's Goal</h5>
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h4 class="fw-semibold mb-3">16 points</h4>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span
+                                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-arrow-up-left text-success"></i>
+                                        </span>
+                                        <p class="text-dark me-1 fs-3 mb-0"></p>
+                                        <p class="fs-3 mb-0">Going good, {{ student.username }} </p>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-4">
+                                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                                            <span class="fs-2">50 Points</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="progress-bar-container">
+
+                                            <div class="progress-bar html">
+                                                <progress id="html" min="0" max="100" value="70"></progress>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card overflow-hidden">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-9 fw-semibold">Course Completion Status</h5>
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h4 class="fw-semibold mb-3">50%</h4>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span
+                                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-arrow-up-left text-success"></i>
+                                        </span>
+                                        <p class="text-dark me-1 fs-3 mb-0">Keep it up</p>
+                                        <!-- <p class="fs-3 mb-0">Keep it up</p> -->
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-4">
+                                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                                            <span class="fs-2">This Week</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="progress-bar-container">
+
+                                            <div class="progress-bar css">
+                                                <progress id="css" min="0" max="100" value="70"></progress>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ======================================= video card player ============================= -->
+
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Yearly Breakup -->
+                    <div class="card overflow-hidden p-1" style="max-width: 100%; max-height: 31.7vh;">
+
+                        <!-- <h5 class="card-title mb-9 fw-semibold">Avg. Test Series Result</h5>
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h4 class="fw-semibold mb-3">43%</h4>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span
+                                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                                            <i class="ti ti-arrow-down-left text-danger"></i>
+                                        </span>
+                                        <p class="text-dark me-1 fs-3 mb-0">-13%</p>
+                                        <p class="fs-3 mb-0">last test</p>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-4">
+                                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                                            <span class="fs-2">Completed</span>
+                                        </div>
+                                        <div>
+                                            <span
+                                                class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                                            <span class="fs-2">Left</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="progress-bar-container">
+
+                                            <div class="progress-bar html">
+                                                <progress id="html" min="0" max="100" value="70"></progress>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                        <img src="https://www.localguidesconnect.com/t5/image/serverpage/image-id/970648iABEB9D882AD141A6/image-size/large?v=v2&px=999"
+                            height="205vh" style="border-radius: 5px;" alt="">
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row alig n-items-Coming Soon">
+                  <div class="col-8">
+                    <h5 class="card-title mb-9 fw-semibold"> Rank Score </h5>
+                    <h4 class="fw-semibold mb-3">69</h4>
+                    <div class="d-flex align-items-center pb-1">
+                      <span
+                        class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-arrow-down-right text-danger"></i>
+                      </span>
+                      <p class="text-dark me-1 fs-3 mb-0">+9%</p>
+                      <p class="fs-3 mb-0">last year</p>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="d-flex justify-content-end">
+                      <div
+                        class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-user fs-6"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div> -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- =============================================== BADGES ================================================== -->
+
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-2 text-white">Your Badges🔥</h5>
+    </div>
+
+    <div class="card">
+        <div class="card-body m-n4">
+
+            {% if student.badges.all %}
+            {% for badge in student.badges.all %}
+
+            <img src="{{ badge.image.url }}" class="mx-2" width="60" alt="">
+
+            {% endfor %}
+
+            {% for badge in rest_badges %}
+
+            <img src="{{ badge.image.url }}" class="mx-2 opacity-25 badge-img" width="60" alt="">
+
+            {% endfor %}
+
+
+            <strong class="fs-4 align-baseline float-end mt-3">
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'play' %}">Earn more...</a>
+            </strong>
+
+            {% else %}
+            <h5 class="card-title fw-semibold mb-2 text-danger">No Badges Earned Yet</h5>
+
+
+            {% for badge in rest_badges %}
+
+            <img src="{{ badge.image.url }}" class="mx-2 opacity-25 badge-img" width="60" alt="">
+
+            {% endfor %}
+            <a class="btn btn-md btn-outline-danger float-end" href="{% url 'play' %}">Earn more...</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- =========================================== Games +  ====================================== -->
+
+    <div class="row">
+
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card w-100">
+                <div class="card-body p-4">
+                    <div class="mb-4">
+                        <h5 class="card-title fw-semibold">Suggested Words</h5>
+                    </div>
+
+
+                    <ul class="timeline-widget mb-0 position-relative mb-n5">
+                        <!-- <li class="timeline-item d-flex position-relative overflow-hidden">
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">09:30</div>
+                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                      <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
+                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                    </div>
+                    <div class="timeline-desc fs-3 text-dark mt-n1">Physics Class <a href="javascript:void(0)"
+                        class="text-primary d-block fw-normal">Sachin Shakya Sir</div>
+                  </li>
+                  <li class="timeline-item d-flex position-relative overflow-hidden">
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">10:00 am</div>
+                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                      <span class="timeline-badge border-2 border border-info flex-shrink-0 my-8"></span>
+                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                    </div>
+                    <div class="timeline-desc fs-3 text-dark mt-n1">Biology Class <a href="javascript:void(0)"
+                        class="text-primary d-block fw-normal">Abhishek Mathur Sir</div>
+      
+                  </li>
+                  <li class="timeline-item d-flex position-relative overflow-hidden">
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
+                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                      <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
+                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                    </div>
+                    <div class="timeline-desc fs-3 text-dark mt-n1">Chemistry Class</div>
+                  </li>
+                  <li class="timeline-item d-flex position-relative overflow-hidden">
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">6:30 pm</div>
+                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                      <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
+                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                    </div>
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Test Session <a href="javascript:void(0)"
+                        class="text-primary d-block fw-normal">Physics</a>
+                    </div>
+                  </li> -->
+                        <li class="timeline-item d-flex position-relative overflow-hidden">
+                            <div class="timeline-time text-dark flex-shrink-0 text-end">Hello</div>
+                            <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                                <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
+                                <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                            </div>
+                            <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Coming Soon
+                            </div>
+                        </li>
+
+                        <li class="timeline-item d-flex position-relative overflow-hidden">
+                            <div class="timeline-time text-dark flex-shrink-0 text-end">Namaste</div>
+                            <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                                <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
+                                <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                            </div>
+                            <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Coming Soon
+                            </div>
+                        </li>
+
+                        <li class="timeline-item d-flex position-relative overflow-hidden">
+                            <div class="timeline-time text-dark flex-shrink-0 text-end">Ok</div>
+                            <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                                <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
+                                <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                            </div>
+                            <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Coming Soon
+                            </div>
+                        </li>
+
+                        <li class="timeline-item d-flex position-relative overflow-hidden">
+                            <div class="timeline-time text-dark flex-shrink-0 text-end">Bye</div>
+                            <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                                <span class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
+                                <!-- <span class="timeline-badge-border d-block flex-shrink-0"></span> -->
+                            </div>
+                            <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Coming Soon
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- ======================================== My Batches ======================================================== -->
+
+        <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="card w-100">
+                <div class="card-body p-4">
+                    <h5 class="card-title fw-semibold mb-4">My Favourite Games🎯</h5>
+                    <div class="table-responsive">
+                        <table class="table text-nowrap mb-0 align-middle">
+                            <thead class="text-dark fs-4">
+
+                                <tr>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">#</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Title</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Max. Points</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Earned</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Action</h6>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <!-- ========================= TIC - TAC - TOE ================================= -->
+
+                                <tr>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">1</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-1">Tic-Tac-Toe</h6>
+                                        <span class="fw-normal"></span>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <p class="mb-0 fw-semibold">5 Points</p>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0 fs-4">55 points</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <a href="{% url 'tic-tac-toe' %}" class="btn btn-outline-success">Play</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- ========================= PIANO ================================= -->
+
+                                <tr>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">2</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-1">Amazing Piano</h6>
+                                        <span class="fw-normal"></span>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <p class="mb-0 fw-semibold">1 Point</p>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0 fs-4">13 points</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <a href="{% url 'piano' %}" class="btn btn-outline-success">Play</a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- ========================= HANGMAN ================================= -->
+
+                                <tr>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">3</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-1">Guess The Number Game</h6>
+                                        <span class="fw-normal"></span>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <p class="mb-0 fw-semibold">2 Points</p>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0 fs-4">14 points</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <a href="{% url 'guess-the-number' %}"
+                                                class="btn btn-outline-success">Play</a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    </div>
+
+    </div>
+
+
+    {% endblock %}

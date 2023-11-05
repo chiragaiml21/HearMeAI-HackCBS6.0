@@ -1,0 +1,189 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title fw-semibold mb-3">Play Games With Us🎯</h5>
+      <p class="mb-0">💯 We Know You Can,
+        <strong>{{ student.username }}💯</strong>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+
+    <!-- =========================== Tic Tac Toe ========================= -->
+
+    <div class="col-sm-6 col-xl-3">
+      <div class="card overflow-hidden rounded-2">
+        <div class="position-relative">
+          <a href="{% url 'tic-tac-toe' %}"><img src="https://miro.medium.com/v2/resize:fit:758/1*4SXBuqY-CCIClINjvtTz0A.gif"
+              class="card-img-top rounded-2" alt="..." /></a>
+
+          <!-- <a href="#"
+              class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+              data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
+                class="ti ti-music fs-4"></i></a> -->
+
+          <button id="speak-button"
+            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
+              class="ti ti-music fs-4"></i></button>
+
+        </div>
+        <div class="card-body pt-3 p-4">
+          <h6 class="fw-semibold fs-4">Tic-Tac-Toe</h6>
+          <div class="d-flex align-items-center justify-content-between">
+            <ul class="list-unstyled d-flex align-items-center mb-0">
+              <li>
+                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+              </li>
+              <li>
+                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+              </li>
+              <li>
+                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+              </li>
+              <li>
+                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+              </li>
+              <li>
+                <a class=""><i class="ti ti-star text-warning"></i></a>
+              </li>
+            </ul>
+
+            <!-- <h6 class="fw-semibold fs-4 mb-0">
+                ₹1000<span class="ms-2 fw-normal text-muted fs-3"><del>₹2999</del></span>
+              </h6> -->
+
+          </div>
+          <div class="row-cols-lg-3">
+            <span class="mb-1">Duration: 5 min</span>
+          </div>
+
+          <div class="row-cols-lg-3 mt-3">
+            <span class="mb-1">Play this game to learn something new</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================== Piano ========================= -->
+
+    <div class="col-sm-6 col-xl-3">
+      <div class="card overflow-hidden rounded-2">
+        <div class="position-relative">
+          <a href="{% url 'piano' %}"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/041dc3ad-6925-4065-b8c2-095297eaee45/d7lcdta-cf9cb875-b6ac-4d71-922c-50b966903728.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA0MWRjM2FkLTY5MjUtNDA2NS1iOGMyLTA5NTI5N2VhZWU0NVwvZDdsY2R0YS1jZjljYjg3NS1iNmFjLTRkNzEtOTIyYy01MGI5NjY5MDM3MjguZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.h_0MSn3Dk7ALH7yY4Uqr3u0AFXLRNwEP29hb45BCHlY"
+              class="card-img-top rounded-2" alt="..." /></a>
+
+          <!-- <a href="#"
+              class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+              data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
+                class="ti ti-music fs-4"></i></a> -->
+
+          <button id="speak-button"
+            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
+              class="ti ti-music fs-4"></i></button>
+
+        </div>
+        <div class="card-body pt-3 p-4">
+          <h6 class="fw-semibold fs-4">My Piano</h6>
+          <div class="d-flex align-items-center justify-content-between">
+            <ul class="list-unstyled d-flex align-items-center mb-0">
+              <li>
+                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+              </li>
+              <li>
+                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+              </li>
+              <li>
+                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+              </li>
+              <li>
+                <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+              </li>
+              <li>
+                <a class=""><i class="ti ti-star text-warning"></i></a>
+              </li>
+            </ul>
+
+            <!-- <h6 class="fw-semibold fs-4 mb-0">
+                ₹1000<span class="ms-2 fw-normal text-muted fs-3"><del>₹2999</del></span>
+              </h6> -->
+
+          </div>
+          <div class="row-cols-lg-3">
+            <span class="mb-1">Duration: 5 min</span>
+          </div>
+
+          <div class="row-cols-lg-3 mt-3">
+            <span class="mb-1">Play this game to learn something new</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ============================= HANGMAN ========================== -->
+
+<div class="col-sm-6 col-xl-3">
+  <div class="card overflow-hidden rounded-2">
+    <div class="position-relative">
+      <a href="{% url 'guess-the-number' %}"><img src="https://i.pinimg.com/originals/87/dc/79/87dc799670c06e9754bccb3b37d9541d.gif"
+          class="card-img-top rounded-2" alt="..." /></a>
+
+      <!-- <a href="#"
+          class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+          data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
+            class="ti ti-music fs-4"></i></a> -->
+
+      <button id="speak-button"
+        class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
+          class="ti ti-music fs-4"></i></button>
+
+    </div>
+    <div class="card-body pt-3 p-4">
+      <h6 class="fw-semibold fs-4">Guess The Number</h6>
+      <div class="d-flex align-items-center justify-content-between">
+        <ul class="list-unstyled d-flex align-items-center mb-0">
+          <li>
+            <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+          </li>
+          <li>
+            <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+          </li>
+          <li>
+            <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+          </li>
+          <li>
+            <a class="me-1"><i class="ti ti-star text-warning"></i></a>
+          </li>
+          <li>
+            <a class=""><i class="ti ti-star text-warning"></i></a>
+          </li>
+        </ul>
+
+        <!-- <h6 class="fw-semibold fs-4 mb-0">
+            ₹1000<span class="ms-2 fw-normal text-muted fs-3"><del>₹2999</del></span>
+          </h6> -->
+
+      </div>
+      <div class="row-cols-lg-3">
+        <span class="mb-1">Duration: 5 min</span>
+      </div>
+
+      <div class="row-cols-lg-3 mt-3">
+        <span class="mb-1">Play this game to learn something new</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+{% endblock %}

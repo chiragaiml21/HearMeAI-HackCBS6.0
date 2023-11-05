@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checking Bandwidth</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* Background color */
+        }
+
+        .heading {
+            font-size: 250%; /* Heading font size */
+            margin-top: 5%;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: #1e1e1e;
+            
+        }
+
+        .card-container {
+            display: flex;
+            margin: 4%;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+        }
+
+        .card {
+            flex: 0 0 calc(33.33% - 2%);
+            /* 3 cards per row with 2% margin */
+            padding: 20px;
+            font-size: 24px;
+            /* font color should be a bit grey */
+            color: #1f1f1f;
+            font-family: cursive;
+            font-weight: bold;
+            background-color: #bff9bf;
+            /* Light green background */
+            border-radius: 7px;
+            /* 1% margin between cards */
+            text-align: center;
+            /* give a light box shadow with the same color to give a smooth look to the card */
+            box-shadow: 0 0 15px #bff9bf;
+        }
+
+        .card.blue {
+            background-color: #bebefb;
+            margin-left: 2%;
+            margin-right: 2%;
+            /* Light blue background */
+            box-shadow: 0 0 15px #bebefb;
+        }
+
+        .card.yellow {
+            background-color: #f8f8b5;
+            /* Light yellow background */
+            box-shadow: 0 0 15px #f8f8b5;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex: 0 0 calc(50% - 2%);
+                /* 2 cards per row on smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="heading">Please Choose The Bandwidth According To Your Internet Speed</h1>
+
+    <div class="card-container">
+        <a class="card" href="{% url 'dashboard' %}" style="text-decoration: none;">
+            <div>
+                Low Bandwidth
+            </div>
+        </a>
+
+        <a class="card blue" href="{% url 'dashboard' %}" style="text-decoration: none;">
+            <div>
+                Mid Bandwidth
+            </div>
+        </a>
+
+        <a class="card yellow" href="{% url 'dashboard' %}" style="text-decoration: none;">
+            <div>
+                High Bandwidth
+            </div>
+        </a>
+    </div>
+</body>
+
+</html>

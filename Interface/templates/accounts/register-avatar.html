@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register - 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script
+        type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/accounts/register.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
+</head>
+
+<body>
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+        <h1>Choose Your Avatar</h1>
+        <div class="main-agileinfo">
+            <div class="agileits-top">
+                <form action="{% url 'register-avatar' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="d-flex justify-content-center">
+                    <label>Select Avatar:</label>
+                    <br>
+                    {% for avatar in avatars %}
+                    <input type="radio" name="avatar" value="{{ avatar.id }}">
+                    <img src="{{ avatar.image.url }}" alt="{{ avatar.name }}" width="20%"><br>
+                    {% endfor %}
+                </div>
+
+                    <button class="btn btn-primary" type="submit">Register</button>
+
+                </form>
+            </div>
+
+        </div>
+        <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!-- //main -->
+</body>
+
+</html>

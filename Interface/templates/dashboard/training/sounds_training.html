@@ -1,0 +1,399 @@
+{% extends "dashboard/base.html" %} {% load static %} {% block extra_css %}
+
+<style>
+  * {
+    scroll-behavior: smooth;
+  }
+
+  .avatar-frame {
+    width: 105vh;
+    height: 70vh;
+    /* border-radius: 50%; */
+    border: 1px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* margin: 0 auto; */
+    /* position: relative; */
+  }
+
+  #ifr {
+    width: 105vh;
+    height: 85vh;
+  }
+
+  .phone-frame {
+    width: 105vh;
+    height: 15vh;
+    margin-top: 10px;
+    background-color: #fff;
+    /* border-radius: 50%; */
+    border: 1px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* margin: 0 auto; */
+    /* position: relative; */
+  }
+
+  /* ---------------Right menu bar--------------------  */
+
+  #right-cont {
+    color: black;
+    /* float: right; */
+    height: 56vh;
+    width: 55vh;
+    background-color: white;
+    position: absolute;
+    border-radius: 10px;
+    right: 0px;
+    top: 0px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* -------------searchbar------------------ */
+
+  .searchBox {
+    margin-top: 20px;
+    /* background-color: black; */
+    /* border-radius: 10px; */
+    height: 40px;
+  }
+
+  .searchBox>.searchInput {
+    height: 100%;
+    width: 90%;
+    margin-left: 20px;
+    /* border: none; */
+    border: 1px solid black;
+    outline: none;
+    border-radius: 50px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: black;
+  }
+
+  .searchBox>.searchButton {
+    position: absolute;
+    right: 16px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: #ef473a;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+  }
+
+  /* ---------------character__selection------------ */
+
+  #word__list {
+    /*  display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    padding-bottom: 2.5%; */
+
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #word__list>.word__list__item {
+    margin-top: 5px;
+    height: 55px;
+    width: 55px;
+    border: 1.5px solid #000;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+
+
+  #alpha__list {
+    margin-top: 5px;
+    height: 55px;
+    width: 55px;
+    border: 1.5px solid #000;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #alpha__list>.word__list__item:hover {
+    background-color: #ef473a;
+    color: white;
+    transform: scale(1.1);
+    border: none;
+    box-shadow: 1px 1px 3px rgba(74, 74, 74, 0.308);
+  }
+
+  #word__list>.word__list__item:hover {
+    background-color: #ef473a;
+    color: white;
+    transform: scale(1.1);
+    border: none;
+    box-shadow: 1px 1px 3px rgba(74, 74, 74, 0.308);
+  }
+
+  .my__btn {
+    margin-top: -1%;
+    margin-top: 3%;
+    margin-right: 3%;
+    /* background: green; */
+  }
+
+  .show_more {
+    margin-left: 4%;
+    width: 100%;
+    /* margin-top: 15px; */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    /* margin: 20px 10px; */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .show_more:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+  .word__selection {
+    overflow-y: scroll;
+
+    color: black;
+    /* float: right; */
+    height: fit-content;
+    width: 55vh;
+    background-color: white;
+    /* position: absolute; */
+    border-radius: 10px;
+    right: 10px;
+    margin-top: 27px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  #cont__list {
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #cont__list>li {
+    list-style: none;
+    margin-top: 10px;
+    height: 55px;
+    width: 55px;
+    display: flex;
+
+    /* border: 1.5px solid #000; */
+    /* border-radius: 50%; */
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+</style>
+
+{% endblock %} {% block body %}
+
+<div class="container-fluid">
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!--  Header Start -->
+
+    <div class="container" id="my-cont">
+      <div class="avatar">
+        <div class="avatar-frame">
+          <img src="{% static 'img/cc.png' %}" id="ifr" width="100%">
+          <!-- <div class="sketchfab-embed-wrapper" >
+            <iframe
+              id="ifr"
+              title="Iron Man"
+              frameborder="0"
+              allowfullscreen
+              mozallowfullscreen="true"
+              webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              xr-spatial-tracking
+              execution-while-out-of-viewport
+              execution-while-not-rendered
+              web-share
+              src="http://127.0.0.1:5000/"
+            >
+            </iframe>
+          </div> -->
+        </div>
+        <div class="phonem">
+          <div class="phone-frame" style="display: flex; align-items: center; justify-content: center">
+
+            {% for phoneme in phonemes %}
+            <h4>- {{ phoneme.key }} - </h4>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="right-cont">
+      <div class="right__menu">
+        <div class="searchBox">
+          <input class="searchInput" type="text" name="" placeholder="Search word..." />
+          <button class="searchButton" href="#">
+            <i class="ti ti-search"></i>
+          </button>
+        </div>
+        <hr />
+
+        <div class="character__selection">
+          <!-- <form method="get" action="{% url 'get_words_by_character' %}"> -->
+          <div class="character__selection">
+            <!-- <ul id="word__list">
+                {% for alphabet in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+                <li class="word__list__item">
+                  <input
+                    type="submit"
+                    name="character"
+                    value="{{ alphabet }}"
+                  />
+                </li>
+                {% endfor %}
+              </ul> -->
+
+
+              {% for word in words %}
+
+              <div class="my__btn" style="display: flex; justify-content: center;">
+                <a href="{% url 'get_word' word.id %}" type="submit" class="show_more">
+                  <span class="text">{{ word.word }}</span>
+                </a>
+              </div>
+
+              {% endfor %}
+
+          </div>
+
+        </div>
+      </div>
+      <br /><br /><br /><br />
+      <!-- </form> -->
+
+      <div class="word__selection">
+        <div class="container" id="cont_flx">
+          <!-- ==================================== for numbers ================================= -->
+          <ul id="cont__list" style="display: none">
+            <li class="word__list__item" style="font-size: 50px">1</li>
+            <li class="word__list__item" style="font-size: 50px">2</li>
+            <li class="word__list__item" style="font-size: 50px">3</li>
+            <li class="word__list__item" style="font-size: 50px">4</li>
+            <li class="word__list__item" style="font-size: 50px">5</li>
+            <li class="word__list__item" style="font-size: 50px">6</li>
+            <li class="word__list__item" style="font-size: 50px">7</li>
+            <li class="word__list__item" style="font-size: 50px">8</li>
+            <li class="word__list__item" style="font-size: 50px">9</li>
+          </ul>
+
+          <!-- ==================================== FOR ALPHABETS ================================= -->
+          <ul id="word__list" style="display: none">
+            {% for alphabet in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+            <li class="word__list__item"> {{ alphabet }}</li>
+            {% endfor %}
+          </ul>
+
+          <!-- ==================================== FOR WORDS ================================= -->
+          <ul id="ok__list" style="display: none">
+            {% for word in words %}
+
+            <li class="word__list__item"> {{ word }}</li>
+
+            {% endfor %}
+          </ul>
+          <!-- {% for word in words %}
+
+                <li>
+                  <a
+                    href="{% url 'selected_word' word.id %}"
+                    style="color: black"
+                  >
+                    {{ word }}
+                  </a>
+                </li>
+
+                {% endfor %} -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+{% block myjs %}
+
+<script>
+  function open_numbers() {
+    var x = document.getElementById("numbers").innerHTML;
+    if (x == "Numbers") {
+      document.getElementById("numbers").innerHTML = "Close";
+      document.getElementById("cont__list").style.display = "flex";
+      document.getElementById("word__list").style.display = "none";
+      document.getElementById("alpha__list").style.display = "none";
+    } else {
+      document.getElementById("numbers").innerHTML = "Numbers";
+      document.getElementById("cont__list").style.display = "none";
+      document.getElementById("word__list").style.display = "none";
+      document.getElementById("alpha__list").style.display = "none";
+    }
+  }
+
+  function open_alphabets() {
+    var x = document.getElementById("alphabets").innerHTML;
+    if (x == "Alphabets") {
+      document.getElementById("alphabets").innerHTML = "Close";
+      document.getElementById("alpha__list").style.display = "flex";
+      document.getElementById("word__list").style.display = "none";
+      document.getElementById("cont__list").style.display = "none";
+    } else {
+      document.getElementById("alphabets").innerHTML = "Alphabets";
+      document.getElementById("alpha__list").style.display = "none";
+      document.getElementById("word__list").style.display = "none";
+      document.getElementById("cont__list").style.display = "none";
+    }
+  }
+
+  function open_words() {
+    var x = document.getElementById("words").innerHTML;
+    if (x == "Words") {
+      document.getElementById("words").innerHTML = "Close";
+      document.getElementById("word__list").style.display = "flex";
+      document.getElementById("alpha__list").style.display = "none";
+      document.getElementById("cont__list").style.display = "none";
+    } else {
+      document.getElementById("words").innerHTML = "Words";
+      document.getElementById("word__list").style.display = "none";
+      document.getElementById("alpha__list").style.display = "none";
+      document.getElementById("cont__list").style.display = "none";
+    }
+  }
+</script>
+
+{% endblock %} {% endblock %}
