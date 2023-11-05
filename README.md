@@ -1,5 +1,3 @@
-![00-hand-gesture-recognition](https://github.com/chiragaiml21/HearMeAI-HackCBS6.0/assets/92880442/d2b8fe1a-f101-4bfb-b079-9d25f7939841)# HearMeAI-HackCBS6.0
-
 <p align="center">
   <img src="hearmeai-logo.png" alt="HearMeAI Logo" width="200">
 </p>
@@ -42,7 +40,7 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 
 <p align="center">
   <h2>Accuracy > 90%</h2>
-  <img src="accuracy.jpg" alt="Accuracy" width="200">
+  <img src="accuracy.png" alt="Accuracy" width="200">
 </p>
 
 ### Hand Sign Detection
