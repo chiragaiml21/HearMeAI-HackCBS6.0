@@ -68,8 +68,8 @@ Welcome to HearMeAI, where we're transforming speech therapy and communication t
 <p align="center">
   <img src="1.png" alt="" width="200">
   <img src="2.png" alt="" width="200">
-  <img src="3.png" alt="" width="200">
-  <img src="4.png" alt=" width="200">
+  <img src="4.png" alt="" width="200">
+  <img src="3.png" alt=" width="200">
 </p>
 
 - A seamless and intuitive interface for users of all abilities 🌐.
