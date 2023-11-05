@@ -91,6 +91,6 @@ Copyright Receipt No. : 97101
 
 ## 🚀 Contact
 
-For inquiries or support, please contact (blackorder.hearme@gmail.com).
+For inquiries or support, please contact [blackorder.hearmeai@gmail.com.com](mailto:blackorder.hearmeai@gmail.com).
 
 Join our mission on LinkedIn: [HearMeAI on LinkedIn](https://www.linkedin.com/company/hearmeai/).
